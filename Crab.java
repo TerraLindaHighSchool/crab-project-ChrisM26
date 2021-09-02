@@ -24,18 +24,40 @@ public class Crab extends Actor
     // Turn the crab at the edge
     private void turnAtEdge()
     {
-        
+        if(isAtEdge())
+        {
+            turn(50);
+        }
     }
         
     // Check for key presses so user can turn the Crab
     private void checkKeyPress()
     {
+        if(Greenfoot.isKeyDown("right"))
+        {
+            turn(4);
+        }
         
-    }
+        if(Greenfoot.isKeyDown("left"))
+        {
+            turn(-4);
+        }
+    }    
+    
     
     // Check for collisions with other objects
     private void onCollision()
     {
+        if(isTouching(Worm.class))
+        {
+            removeTouching(Worm.class);
+            Greenfoot.playSound("slurp.wav");
+        }
         
+        if(isTouching(lobster.class))
+        {
+            Greenfoot.playSound("au.wav");
+            Greenfoot.stop();
+        }
     }
 }
