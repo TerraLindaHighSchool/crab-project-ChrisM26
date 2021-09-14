@@ -14,7 +14,6 @@ public class Crab extends Actor
      */
     public void act()
     {
-        move(3);
         turnAtEdge();
         checkKeyPress();
         onCollision();
@@ -35,14 +34,25 @@ public class Crab extends Actor
     {
         if(Greenfoot.isKeyDown("right"))
         {
-            turn(4);
+            setLocation(getX()+2, getY());
         }
         
         if(Greenfoot.isKeyDown("left"))
         {
-            turn(-4);
+            setLocation(getX()-2, getY());
+        }
+        
+        if(Greenfoot.isKeyDown("up"))
+        {
+            setLocation(getX(), getY()-2);
+        }
+        
+        if(Greenfoot.isKeyDown("down"))
+        {
+            setLocation(getX(), getY()+2);
         }
     }    
+    
     
     
     // Check for collisions with other objects
@@ -51,7 +61,7 @@ public class Crab extends Actor
         if(isTouching(Worm.class))
         {
             removeTouching(Worm.class);
-            Greenfoot.playSound("slurp.wav");
+            Greenfoot.playSound("soundeating.mp3");
             
             // Winning the game
             if(getWorld().getObjects(Worm.class).size() == 0)
@@ -64,7 +74,7 @@ public class Crab extends Actor
         
         if(isTouching(lobster.class))
         {
-            Greenfoot.playSound("au.wav");
+            Greenfoot.playSound("deathsound.mp3");
             Greenfoot.stop();
         }
     }

@@ -20,27 +20,15 @@ public class CrabWorld extends World
     {
         Crab crab = new Crab();
         addObject(crab,202,192);
-        Worm worm = new Worm();
-        addObject(worm,80,80);
-        Worm worm2 = new Worm();
-        addObject(worm2,419,89);
-        Worm worm3 = new Worm();
-        addObject(worm3,400,341);
-        Worm worm4 = new Worm();
-        addObject(worm4,110,274);
-        Worm worm5 = new Worm();
-        addObject(worm5,106,419);
-        Worm worm6 = new Worm();
-        addObject(worm6,412,520);
-        Worm worm7 = new Worm();
-        addObject(worm7,431,212);
-        worm2.setLocation(338,103);
-        worm7.setLocation(480,159);
-        worm3.setLocation(322,322);
-        worm6.setLocation(493,416);
-        Worm worm8 = new Worm();
-        addObject(worm8,284,520);
+        for(int i = 0; i < 9; i++) {
+            Worm worm = new Worm();
+            addObject(worm,
+                Greenfoot.getRandomNumber(getWidth() - 2 * worm.getImage().getWidth()) + worm.getImage().getWidth(),
+                Greenfoot.getRandomNumber(getHeight() - 2 * worm.getImage().getHeight()) + worm.getImage().getHeight());
+        }
         lobster lobster = new lobster();
         addObject(lobster,468,34);
+        lobster lobster2 = new lobster();
+        addObject(lobster2,453,279);
     }
 }

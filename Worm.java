@@ -14,6 +14,19 @@ public class Worm extends Actor
      */
     public void act()
     {
-        // Add your action code here.
+    
+    {
+        move(3);
+        turnAtEdge();
+        
     }
-}
+    
+}private void turnAtEdge()
+    {
+        if(isAtEdge())
+        {
+            turn(Greenfoot.getRandomNumber (360));
+        }
+    }
+  }
+
